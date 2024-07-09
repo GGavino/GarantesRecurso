@@ -1,0 +1,74 @@
+<ion-content class="ion-padding back-color2">
+
+  <!-- Secção do título com botão de voltar -->
+  <div class="ion-text-center title-container">
+    <ion-button (click)="voltar()" shape="round" color="yellow" style="margin-right: 9cm;" class="custom-button2">
+      <b>Voltar</b>
+    </ion-button>
+    <h1 class="black-text custom-font" style="font-size: 2.5rem;">Garantes</h1>
+  </div>
+
+  <!-- Exibe o nome da garantia -->
+  <div style="display: flex; justify-content: center; align-items: center; height: 7.5vh;">
+    <ion-item style="font-size: 20px; justify-content: center; border: 1px solid black;">
+      <b>{{ garantia?.nome }}</b>
+    </ion-item>
+  </div>
+
+  <!-- Secção para exibir a foto da garantia, se houver -->
+  <div class="content-center" style="text-align: center;">
+    <div *ngIf="garantia && garantia.foto" class="foto-quadrada"
+      [ngStyle]="{ 'background-image': 'url(' + garantia.foto + ')' }">
+    </div>
+  </div>
+
+  <!-- Exibe o modelo da garantia -->
+  <div>
+    <h1 class="black-text custom-font" style="  margin-right: 200px; font-size: 19px;">Modelo</h1>
+    <ion-item class="button-border">
+      {{ garantia?.modelo }}
+    </ion-item>
+  </div>
+
+    <!-- Exibe o modelo da garantia -->
+    <div>
+      <h1 class="black-text custom-font" style="  margin-right: 200px; font-size: 19px;">Categoria</h1>
+      <ion-item class="button-border">
+        {{ garantia?.categoria }}
+      </ion-item>
+    </div>
+
+  <!-- Exibe a data de compra da garantia formatada -->
+  <div>
+    <h1 class="black-text custom-font" style=" font-size: 19px;">Data De Compra</h1>
+    <ion-item class="button-border">
+      {{ formatDate(garantia?.dataCompra) }}
+    </ion-item>
+  </div>
+
+  <!-- Exibe a data de expiração da garantia formatada -->
+  <div>
+    <h1 class="black-text custom-font" style="font-size: 19px;">Data de Expiração</h1>
+    <ion-item class="button-border">
+      {{ formatDate(garantia?.dataExpiracao) }}
+    </ion-item>
+  </div>
+
+  <!-- Exibe o prazo de validade da garantia -->
+  <div>
+    <h1 class="black-text custom-font" style="font-size: 19px;">Prazo de Validade</h1>
+    <ion-item class="button-border">
+      {{ calcularPrazo() }}
+    </ion-item>
+  </div>
+
+  <!-- Exibe observações sobre a garantia -->
+  <div>
+    <h1 class="black-text custom-font" style="  margin-right: 150px; font-size: 19px;">Observações</h1>
+    <ion-item class="button-border">
+      {{ garantia?.observacoes }}
+    </ion-item>
+  </div>
+
+
+</ion-content>

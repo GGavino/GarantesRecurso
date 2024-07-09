@@ -1,0 +1,130 @@
+<ion-content [fullscreen]="true" class="custom-background">
+
+  <!-- Título da página -->
+  <div class="ion-text-center title-container">
+    <h1 class="black-text custom-font" style="font-size: 2.5rem;">Garantes</h1>
+  </div>
+
+  <!-- Barra de pesquisa -->
+  <div>
+    <ion-searchbar placeholder="Nome Da Garantia" show-clear-button="always" class="round-searchbar" (ionInput)="onSearch($event)"></ion-searchbar>
+  </div>
+
+  <!-- Botão de Filtrar Por Duração -->
+  <div style="display: flex;">
+    <div class="ion-margin-start" (click)="selectFilterOptions.open()">
+      <ion-button class="back-color black-text button-border">
+        <b>Filtrar Por Duração</b>
+        <ion-icon slot="end" name="caret-down-outline"></ion-icon>
+      </ion-button>
+    </div>
+
+    <!-- Botão de Notificações -->
+    <div>
+      <div (click)="garantiasSelecionadas.length > 0 ? selectNotify.open() : null">
+        <ion-button class="back-color black-text button-border" [disabled]="garantiasSelecionadas.length === 0">
+          <ion-icon name="notifications-outline"></ion-icon>
+          <ion-icon slot="end" name="caret-down-outline"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+  
+    <!-- Botão para limpar filtro selecionado -->
+    <div *ngIf="selectedFilter || selectedFilterCategoria" class="ion-margin-start">
+      <ion-button (click)="clearFilter()" fill="clear" class="back-color black-text button-border">
+        Limpar Filtro
+      </ion-button>
+    </div>
+  </div>
+  <div class="ion-margin-start" (click)="selectFilterCategorias.open()">
+    <ion-button class="back-color black-text button-border">
+      <b>Filtrar Por Categoria</b>
+      <ion-icon slot="end" name="caret-down-outline"></ion-icon>
+    </ion-button>
+  </div>
+  
+  <!-- Opções de filtro por duração -->
+ <ion-select #selectFilterOptions [(ngModel)]="selectedFilter" interface="action-sheet" (ionChange)="setFilter($event.detail.value)" placeholder="Filtrar Por Duração" style="display: none;" cancelText="Cancelar">
+   <ion-select-option value="1">Duração menos de 1 mês</ion-select-option>
+   <ion-select-option value="3">Duração menos de 3 meses</ion-select-option>
+   <ion-select-option value="6">Duração menos de 6 meses</ion-select-option>
+   <ion-select-option value="12">Duração menos de 1 ano</ion-select-option>
+ </ion-select>
+
+   <!-- Opções de filtro por duração -->
+   <ion-select #selectFilterCategorias [(ngModel)]="selectedFilterCategoria" interface="action-sheet" (ionChange)="setFilterCategoria($event.detail.value)" placeholder="Filtrar Por Categoaria" style="display: none;" cancelText="Cancelar">
+    <ion-item *ngFor="let categoria of categorias" class="">
+      <ion-select-option>{{categoria.nome}}</ion-select-option>
+    </ion-item>
+    <ion-select-option>Outros</ion-select-option>
+  </ion-select>
+
+ <!-- Opções de notificação -->
+ <ion-select #selectNotify  interface="action-sheet"  placeholder="Notify" style="display: none;" (ionChange)="setNotificationPeriod($event.detail.value)" cancelText="Cancelar">
+  <ion-select-option value="7">Agendar notificações para quando o prazo de validade atingir 7 dias</ion-select-option>
+  <ion-select-option value="15">Agendar notificações para quando o prazo de validade atingir 15 dias</ion-select-option>
+  <ion-select-option value="30">Agendar notificações para quando o prazo de validade atingir 30 dias</ion-select-option>
+  <ion-select-option value="90">Agendar notificações para quando o prazo de validade atingir 90 dias</ion-select-option>
+ </ion-select>
+
+ <!-- Lista de garantias -->
+  <div>
+    <ion-card class="back-color">
+      <ion-list class="fixed-height-list back-color">
+        <ion-list-header class="">
+          <ion-label style="font-size: 20px;"> <b>Garantias</b></ion-label>
+        </ion-list-header>
+        <!-- Verifica se há garantias filtradas -->
+        <ng-container *ngIf="filteredGarantias.length > 0; else emptyList">
+          <!-- Itera sobre as garantias filtradas -->
+          <ion-item *ngFor="let garantia of filteredGarantias" class="">
+            <!-- Botão para visualizar detalhes da garantia -->
+            <ion-button expand="Block" class="button-border back-color black-text custom-button" shape="round" (click)="verGarantia(garantia.nome)">
+              {{ garantia.nome }}
+            </ion-button>
+             <!-- Checkbox para seleção da garantia -->
+            <ion-checkbox slot="end" [checked]="garantiasSelecionadas.includes(garantia)" (ionChange)="toggleSelection(garantia)"></ion-checkbox>
+            <!-- Botão de ação para remover garantia -->
+            <ion-button slot="end" (click)="removeGarantia(garantia)" fill="inline">
+              <ion-icon slot="icon-only" name="trash-outline" class="custom-trash-button icon-delete"></ion-icon>
+            </ion-button>
+          </ion-item>
+        </ng-container>
+        <!-- Template para lista vazia -->
+        <ng-template #emptyList>
+          <ion-item class="empty-list-item">
+            <ion-label>Não existem garantias</ion-label>
+          </ion-item>
+        </ng-template>
+      </ion-list>
+    </ion-card>
+  </div>
+
+  <!-- Botão de adicionar garantia -->
+  <div class="ion-margin-bottom">
+
+    
+    <ion-fab vertical="bottom" horizontal="end" style="margin-right: 20px; margin-bottom: 10px;" slot="fixed" class="fab-button-custom">
+      <ion-fab-button color="yellow" (click)="goAddGarantiaPage()" class="bigger-icon">
+        <ion-icon name="add" size="large"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    
+  </div>
+
+  <!-- Botão para selecionar todas as garantias -->
+  <div style="margin-left: 10px;">
+    <ion-button  class="back-select"  shape="round" (click)="selectAll()">
+      <ion-label class="black-text">Selecionar Tudo</ion-label>
+    </ion-button>
+  </div>
+
+  <!-- Botão para remover garantias selecionadas -->
+  <div style="margin-left: 10px;">
+    <ion-button  class="back-delete"  shape="round" [disabled]="garantiasSelecionadas.length === 0" (click)="removeGarantias()">
+      <ion-icon slot="icon-only" name="trash-outline" class="custom-trash-button" color="back-color" style="margin-left: 10px;"></ion-icon>
+      <ion-label style="margin-left: 10px; margin-right: 10px;">Selecionados</ion-label>
+    </ion-button>
+  </div>
+
+</ion-content>

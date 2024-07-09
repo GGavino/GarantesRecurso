@@ -1,0 +1,50 @@
+  .custom-button {
+    height: 40px; /* Define a altura do botão */
+    font-size: 16px; /* Define o tamanho da fonte do botão */
+  }
+  
+  .custom-trash-button {
+    height: 25px; /* Define a altura do botão do lixo */
+    width: 25px; /* Define a largura do botão do lixo */
+
+  }
+
+  .list-container {
+    height: 500px; 
+    overflow-y: auto; 
+  }
+
+  .fab-button-custom {
+    bottom: 70px; 
+    margin-left: 20px;
+  }
+
+  .fixed-height-list {
+    height: calc(80vh - 240px);
+    overflow-y: auto;
+  }
+
+  .empty-list-item {
+    text-align: center;
+    width: 100%;
+    font-size: 1.2rem;
+    color: #666;
+  }
+
+  .bigger-icon {
+    width: 75px;
+    height: 75px;
+  }
+
+  .back-delete {
+    --background: #e40000;
+  }
+
+  .icon-delete {
+    color: #e40000;
+  }
+
+  .back-select {
+    --background: var(--ion-color-yellow);
+  }
+

@@ -1,0 +1,49 @@
+.form-group {
+    text-align: center;
+    /* Centraliza o conteúdo horizontalmente */
+    margin-bottom: 100px;
+}
+
+.label {
+    display: block;
+}
+
+.input-container {
+    display: inline-block;
+    /* Faz o input ficar na mesma linha */
+}
+
+.input-container input {
+
+    width: 350px;
+    height: 50px;
+}
+
+.left-align {
+    margin-left: 2px;
+    /* Alinha o texto à esquerda */
+}
+
+.inputBackground {
+    background-color: #ffffff;
+    color: #000000;
+    /* Altere para a cor desejada */
+    padding: 10px;
+    /* Adiciona espaçamento interno */
+    border-radius: 15px;
+    /* Adiciona borda arredondada */
+}
+
+.large-button {
+    width: 45px !important;
+    height: 45px !important;
+    padding: 0 !important;
+    --padding-start: 0 !important;
+    --padding-end: 0 !important;
+}
+
+.large-icon {
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 50px !important;
+}

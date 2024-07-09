@@ -1,0 +1,33 @@
+ion-input {
+    --color: #000000;
+    /* Cor do texto */
+    --placeholder-color: #000000;
+    /* Cor do texto do placeholder */
+
+    --background: #ffffff;
+}
+
+.input-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ion-text.ion-text-center {
+    display: block;
+    text-align: center;
+}
+
+.custom-toolbar {
+    display: flex;
+    align-items: center;
+    /* Centraliza verticalmente */
+    position: relative;
+}
+
+.custom-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

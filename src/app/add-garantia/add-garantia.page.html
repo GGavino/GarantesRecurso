@@ -1,0 +1,120 @@
+<ion-content class="ion-padding back-color2">
+
+  <!-- Cabeçalho da página -->
+  <div class="ion-text-center title-container">
+    <!-- Botão de voltar -->
+    <ion-button (click)="voltar()" shape="round" color="yellow" style="position: fixed; top: 16px; left: 16px;"
+      class="custom-button2">
+      <b>Voltar</b>
+    </ion-button>
+    <!-- Título da página -->
+    <h1 class="black-text custom-font" style="font-size: 2.5rem;">Garantes</h1>
+  </div>
+
+  <!-- Secção de upload de foto -->
+  <div class="content-center">
+    <input type="file" (change)="escolherFoto($event)" accept="image/*" hidden #fileInput>
+    <!-- Botão para adicionar foto, visível apenas se nenhuma foto foi selecionada -->
+    <ion-button *ngIf="!novaGarantia.foto" (click)="fileInput.click()" class="button-border back-color custom-button">
+      <ion-icon slot="icon-only" name="add-circle-outline" class="custom-icon"></ion-icon>
+    </ion-button>
+    <!-- Exibição da foto selecionada -->
+    <div class="foto-quadrada" *ngIf="novaGarantia.foto"
+      [ngStyle]="{ 'background-image': 'url(' + novaGarantia.foto + ')' }">
+    </div>
+  </div>
+
+  <!-- Campo para o nome da garantia -->
+  <div>
+    <h1 class="black-text custom-font" style="  margin-left: 10px; font-size: 19px;">Nome</h1>
+    <ion-item class="button-border" style="margin-left: 10px; margin-right: 10px;">
+      <ion-input [(ngModel)]="novaGarantia.nome" placeholder="Nome da garantia"></ion-input>
+    </ion-item>
+  </div>
+
+  <!-- Campo para o modelo da garantia -->
+  <div>
+    <h1 class="black-text custom-font" style="  margin-left: 10px; font-size: 19px;">Modelo</h1>
+    <ion-item class="button-border"  style="margin-left: 10px; margin-right: 10px;">
+      <ion-input [(ngModel)]="novaGarantia.modelo" placeholder="Descrição do Modelo"></ion-input>
+    </ion-item>
+  </div>
+
+  <!-- Campo para a categoria da garantia -->
+  <h1 class="black-text custom-font" style="margin-left: 10px; font-size: 19px;">Categoria</h1>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="10">
+        <div>
+          <ion-item class="button-border">
+            <ion-select [(ngModel)]="novaGarantia.categoria" justify = "space-between">
+              <option></option>
+              <ion-item *ngFor="let categoria of categorias" class="">
+                <ion-select-option>{{categoria.nome}}</ion-select-option>
+              </ion-item>
+              <ion-select-option>Outro</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+      </ion-col>
+    <ion-col size="2">
+      <ion-button style="margin-left: 10px; margin-right: 10px;" (click)="abrirCategoria()" shape = "round" class="custom-icon-button">
+          <ion-icon slot="icon-only" name="create-outline" class="custom-icon2"></ion-icon>
+      </ion-button>
+    </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <!-- Secção de datas (compra e expiração) -->
+  <ion-grid fixed>
+    <ion-row>
+      <!-- Data de compra -->
+      <ion-col size="6">
+        <div>
+          <h1 class="black-text custom-font" style=" font-size: 19px;">Data de Compra</h1>
+          <ion-item class="button-border">
+            <ion-datetime-button datetime="datetimeCompra"></ion-datetime-button>
+
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime id="datetimeCompra" presentation="date-time" value="{{novaGarantia.dataCompra}}"
+                  (ionChange)="handleDataDeCompraChange($event)"></ion-datetime>
+              </ng-template>
+            </ion-modal>
+          </ion-item>
+        </div>
+      </ion-col>
+      <!-- Data de expiração -->
+      <ion-col size="6">
+        <div>
+          <h1 class="black-text custom-font" style=" font-size: 19px;">Data de Expiração</h1>
+          <ion-item class="button-border">
+            <ion-datetime-button datetime="datetimeExpiracao"></ion-datetime-button>
+
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime id="datetimeExpiracao" presentation="date-time" value="{{novaGarantia.dataExpiracao}}"
+                  (ionChange)="handleDataDeExpiracaoChange($event)"></ion-datetime>
+              </ng-template>
+            </ion-modal>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Campo para observações adicionais -->
+  <div>
+    <h1 class="black-text custom-font" style="  margin-right: 200px; font-size: 19px;">Observações</h1>
+    <ion-item class="button-border">
+      <ion-input [(ngModel)]="novaGarantia.observacoes" placeholder="Informações Adicionais"></ion-input>
+    </ion-item>
+  </div>
+
+  <!-- Botão para adicionar a garantia -->
+  <div style="bottom: 16px; left: 16px; right: 16px; text-align: center;">
+    <ion-button (click)="adicionarGarantia()" shape="round" color="yellow" style="font-size: 20px;" class="custom-button3">
+      <b>Adicionar Garantia</b>
+    </ion-button>
+  </div>
+</ion-content>

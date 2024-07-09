@@ -1,0 +1,92 @@
+.form-group {
+    text-align: center;
+    /* Centraliza o conteúdo horizontalmente */
+    margin-bottom: 50px;
+}
+
+.label {
+    display: block;
+}
+
+.input-container {
+    display: inline-block;
+    /* Faz o input ficar na mesma linha */
+}
+
+.input-container input {
+
+    width: 350px;
+    height: 50px;
+
+}
+
+.left-align {
+    margin-left: 2px;
+    /* Alinha o texto à esquerda */
+}
+
+.inputBackground {
+    background-color: #ffffff;
+    padding: 10px;
+    /* Adiciona espaçamento interno */
+    border-radius: 15px;
+    /* Adiciona borda arredondada */
+    border-color: #000000;
+    border-width: 3px;
+}
+
+.custom-button {
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+}
+
+.custom-icon-button {
+    width: 35px;
+    height: 35px;
+}
+
+
+.custom-icon2 {
+    width: 25px;
+    height: 25px;
+}
+
+.custom-icon {
+    width: 100px;
+    height: 100px;
+}
+
+.custom-button2 {
+    width: 80px;
+    height: 50px;
+}
+
+.custom-button3 {
+    width: 300px;
+    height: 50px;
+}
+
+.custom-date {
+    border-width: 3px;
+    background: #ffffff;
+}
+
+.content-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 25vh;
+}
+
+.foto-quadrada {
+    width: 200px;
+    /* Defina a largura do quadrado */
+    height: 200px;
+    /* Defina a altura do quadrado */
+    background-size: cover;
+    /* Ajuste a foto para cobrir todo o quadrado */
+    background-position: center;
+    /* Centralize a foto dentro do quadrado */
+}

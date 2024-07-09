@@ -1,0 +1,114 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+@import "@ionic/angular/css/palettes/dark.system.css";
+
+
+.custom-background {
+    --ion-background-color: #E8E8E8;
+}
+
+.black-text {
+    color: black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/assets/fonts/Inter-Bold.ttf') format('truetype');
+    /* Corrigido o caminho */
+}
+
+.custom-font {
+    font-family: 'Inter', sans-serif;
+}
+
+
+ion-tab-bar,
+ion-tab-button {
+    background-color: #ffffff;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border: unset;
+}
+
+ion-icon {
+    color: #000000;
+}
+
+ion-tab-button.tab-selected ion-icon,
+ion-tab-button.tab-selected ion-label {
+    color: #FFB800;
+    /* Cor branca para ícones e rótulos de guias selecionadas */
+}
+
+.round-searchbar {
+  --border-radius: 50px; 
+  --background: #ffffff;
+}
+
+.round-items {
+    --border-radius: 50px; 
+}
+
+.back-color {
+    --background: #ffffff;
+}
+
+.back-color2 {
+    --background: #E8E8E8;
+}
+
+.button-border {
+    --border-radius: 10px;
+    --border-color: #000;
+    --border-style: solid;
+    --border-width: 3px;
+}
+
+
+ion-input {
+    --highlight-color-focused: #FFB800;
+}
+
+ion-button {
+    text-transform: none;
+}
+
+ion-list-header ion-button {
+    --color: white; /* Define a cor do texto para branco */
+}

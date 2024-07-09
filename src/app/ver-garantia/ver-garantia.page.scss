@@ -1,0 +1,36 @@
+.custom_setting {
+    --border-radius: 10px;
+    --border-color: #000;
+    --border-width: 3px;
+
+}
+
+.custom-button {
+    width: 200px; 
+    height: 200px; 
+}
+
+.custom-icon {
+    width: 100px;
+    height: 100px;
+}
+
+.foto-quadrada {
+    width: 200px;
+    /* Defina a largura do quadrado */
+    height: 200px;
+    /* Defina a altura do quadrado */
+    background-size: cover;
+    /* Ajuste a foto para cobrir todo o quadrado */
+    background-position: center;
+    /* Centralize a foto dentro do quadrado */
+}
+
+.content-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 25vh;
+    /* Ajuste conforme necessário */
+}

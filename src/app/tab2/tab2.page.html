@@ -1,0 +1,25 @@
+<ion-content [fullscreen]="true" class="custom-background">
+
+  <!-- Título da página -->
+  <div class="ion-text-center title-container">
+    <h1 class="black-text custom-font" style="font-size: 2.5rem;">Garantes</h1>
+  </div>
+
+  <!-- Toggle para ativar/desativar notificações -->
+  <div style="margin-top: 20%;">
+    <ion-label
+      style="font-size: 1.5rem; margin-left: 20px; color: #000000; font-family: 'Inter', sans-serif; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Ativar
+      Notificações</ion-label>
+    <ion-toggle class="custom-toggle" style="margin-left: 15px;" color="yellow" [(ngModel)]="notificacoesAtivadas"
+      (ionChange)="toggleNotificacoes()"></ion-toggle>
+  </div>
+
+  <!-- Botão para visualizar notificações ativas -->
+  <div style="margin-top: 30px; left: 16px; right: 16px; text-align: center;">
+    <ion-button (click)="verNotificacoes()"   shape="round" color="yellow">
+      Ver Notificações Ativas
+    </ion-button>
+  </div>
+
+
+</ion-content>

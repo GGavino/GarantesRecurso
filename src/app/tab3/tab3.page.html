@@ -1,0 +1,39 @@
+<ion-content [fullscreen]="true" class="custom-background">
+
+  <!-- Botão de Logout -->
+  <div>
+    <ion-buttons style="margin-left: 355px; margin-top: 0.1cm;">
+      <ion-button class="large-button" (click)="logout()">
+        <ion-icon class="large-icon" slot="icon-only" name="exit"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </div>
+
+  <!-- Título da página -->
+  <div class="ion-text-center title-container">
+    <h1 class="black-text custom-font" style="font-size: 2.5rem;">Garantes</h1>
+  </div>
+
+  <!-- Informações do Utilizador -->
+  <div class="form-group" style="margin-top: 50px;">
+    <h1 class="black-text custom-font" style="text-align: left; margin-left: 1cm; font-size: 20px;">Nome Completo</h1>
+    <div class="input-container">
+      <input class="inputBackground" type="text" [value]="nome" readonly>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <h1 class="black-text custom-font" style="text-align: left; margin-left: 1cm; font-size: 20px;">Apelido</h1>
+    <div class="input-container">
+      <input class="inputBackground" type="text" [value]="apelido" readonly>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <h1 class="black-text custom-font" style="text-align: left; margin-left: 1cm; font-size: 20px;">Email</h1>
+    <div class="input-container">
+      <input class="inputBackground" type="text" [value]="email" readonly>
+    </div>
+  </div>
+
+</ion-content>

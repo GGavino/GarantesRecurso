@@ -1,0 +1,59 @@
+#container {
+    margin-top: 20px;
+}
+
+#container strong {
+    font-size: 20px;
+    line-height: 26px;
+}
+
+#container p {
+    font-size: 16px;
+    line-height: 22px;
+
+    color: #8c8c8c;
+
+    margin: 0;
+}
+
+#container a {
+    text-decoration: none;
+}
+
+.centered-text {
+    font-size: 3em;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    /* Espaço entre o ícone e os botões */
+}
+
+.giant-icon {
+    font-size: 15rem;
+    --color: #000000;
+}
+
+/* Altera a cor do texto dentro do ion-input */
+ion-input {
+    --color: #000000;
+    /* Cor do texto */
+    --placeholder-color: #000000;
+    /* Cor do texto do placeholder */
+    --background: #ffffff;
+    padding: 10px;
+    /* Adiciona espaçamento interno */
+    border-radius: 15px;
+    /* Adiciona borda arredondada */
+}
+
+.input-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ion-button {
+    margin-left: auto;
+    margin-right: auto;
+}

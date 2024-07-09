@@ -1,0 +1,46 @@
+<ion-content [fullscreen]="true" class="custom-background">
+
+  <div class="ion-text-center title-container">
+    <h1 class="black-text custom-font" style="margin-top: 3cm;  font-size: 3rem;">Garantes</h1>
+  </div>
+
+  <div id="container" class="ion-no-padding"
+    style="display: flex; justify-content: center; align-items: center; margin-left: 1cm;">
+    <img [src]="menuLogo" alt="Menu Logo" style="width: 6cm; height: 6cm;">
+  </div>
+
+  <!-- Campos de entrada -->
+  <ion-input [(ngModel)]="email" class="input-center" label="Email" label-placement="floating" fill="outline"
+    style="margin-top: 1.2cm; margin-bottom: 1.2cm; width: 7cm;"></ion-input>
+
+
+
+  <ion-input [(ngModel)]="password" class="input-center" type="password" label="Palavra-passe"
+    label-placement="floating" fill="outline" style="margin-bottom: 1cm; margin-top: -1cm; width: 7cm;"></ion-input>
+
+
+  <div class="ion-text-center ion-padding">
+    <!-- Botões de ação -->
+    <ion-row>
+      <ion-col size="12">
+        <ion-button expand="block" style="--background: #7b7b7b; width: 50%; margin-bottom: 1px; margin-top: -40px;"
+          (click)="login()">Autenticar</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-input [(ngModel)]="codigoAtivacao" class="input-center" type="Código de ativação"
+          label="Código de Ativação" label-placement="floating" fill="outline"
+          style="margin-top: 1cm; width: 7cm;"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-button expand="block" color="light" style="width: 50%; margin-bottom: 1px; margin-top: 10px;"
+          (click)="ativarConta()">Ativar
+          conta</ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+
+</ion-content>

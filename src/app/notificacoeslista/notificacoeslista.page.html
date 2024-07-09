@@ -1,0 +1,41 @@
+<ion-content class="ion-padding back-color2">
+
+  <!-- Container do título com um botão de voltar -->
+  <div class="ion-text-center title-container">
+    <!-- Botão de voltar posicionado no canto superior esquerdo -->
+    <ion-button (click)="voltar()" shape="round" color="yellow" style="position: fixed; top: 16px; left: 16px;"
+      class="custom-button2">
+      <b>Voltar</b>
+    </ion-button>
+    <!-- Título da página -->
+    <h1 class="black-text custom-font" style="font-size: 2.5rem;">Garantes</h1>
+  </div>
+
+  <div>
+    <ion-list>
+      <!-- Cabeçalho da lista de notificações -->
+      <ion-list-header class="">
+        <ion-label style="font-size: 20px;"> <b>Notificações Ativas</b></ion-label>
+        
+        <!-- Botão para cancelar todas as notificações, desabilitado se não houver notificações -->
+        <ion-button  class="back-delete"  shape="round" [disabled]="notificacoes.length === 0" (click)="cancelarTodasNotificacoes()">
+          <ion-icon slot="icon-only" name="trash-outline" class="custom-trash-button" color="back-color" style="margin-left: 10px;"></ion-icon>
+          <ion-label style="margin-left: 10px; margin-right: 10px;">Todos</ion-label>
+        </ion-button>
+        
+      </ion-list-header>
+
+      <!-- Itera sobre a lista de notificações e cria um item para cada notificação -->
+      <ion-item *ngFor="let notificacao of notificacoes">
+        <ion-label>
+          <h2>{{ notificacao.title }}</h2>
+          <p>Tempo restante: {{ formatTempoRestante(notificacao.tempoRestante) }}</p>
+        </ion-label>
+        <!-- Botão para cancelar uma notificação específica -->
+        <ion-button slot="end" (click)="cancelarNotificacao(notificacao.id)" fill="inline">
+          <ion-icon slot="icon-only" name="trash-outline" class="custom-trash-button icon-delete"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
